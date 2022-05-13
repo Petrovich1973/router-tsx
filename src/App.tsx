@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {Input} from './components/Input'
 
 function App() {
+  const [value, setValue] = React.useState('text')
+  const handleChangeValue = (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value)
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +22,7 @@ function App() {
         >
           Learn React
         </a>
+        <Input value={value} onChange={handleChangeValue}/>
       </header>
     </div>
   );
