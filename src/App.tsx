@@ -12,9 +12,31 @@ const list: Array<IDataRow> = [
     {r_n: 5652256, name: 'Наталья', age: 19, gender: false, status: 5}
 ]
 
+// document!.querySelector<HTMLElement>('body')!.style.background = 'red';
+// document!.querySelector<HTMLElement>('#root')!.parentElement!.style.background = 'red';
+// const $ = <T>(selector, scope = document): T =>
+//     scope.querySelector(selector);
+// const example: HTMLElement | null = document.querySelector("body")
+
+
+
 function App() {
     const [value, setValue] = React.useState('text')
     const handleChangeValue = (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value)
+
+    React.useEffect(() => {
+        // document!.querySelector<HTMLElement>('body')!.style.background = 'red';
+        // document!.body!.style! = 'background: red'
+    }, [])
+
+    React.useEffect(()  => {
+        document.body.classList.add('bg-black');
+        document.querySelector('#root')!.classList.add('bg');
+
+        return () => {
+            document.body.classList.remove('bg-black');
+        };
+    });
 
     return (
         <div className="App">
