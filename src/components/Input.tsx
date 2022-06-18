@@ -1,14 +1,14 @@
 import React, {FC} from 'react'
 import {IInput} from '../interfaces'
 
-const Input: FC<IInput> = ({
-                               value,
-                               onChange,
-                               disabled = false,
-                               label,
-                               name,
-                               className
-                           }) => {
+const Input = ({
+                   value = '',
+                   onChange = () => console.log('input change'),
+                   disabled = false,
+                   label = '',
+                   name = '',
+                   className = ''
+               }: IInput) => {
     return (
         <div className={`Input ${className}`}>
             {label && (
