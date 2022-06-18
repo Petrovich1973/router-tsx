@@ -17,11 +17,11 @@ export function TaskPage() {
     const [isViewReport, setIsViewReport] = React.useState<boolean>(false);
 
     React.useEffect(() => {
-        getTasks()
+        getTask()
     }, [])
 
-    const getTasks = async () => {
-        await setLoad(true)
+    const getTask = async () => {
+        setLoad(true)
         try {
             const response = await axios(`http://localhost:3001/task/${id}`, {
                 method: 'GET'

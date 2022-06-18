@@ -15,21 +15,21 @@ export default function TaskList() {
 
     React.useEffect(() => {
         const timer = setTimeout(() => {
-            getTasks()
+            if(tasks.length) getTasks()
         }, 3000);
         return () => clearTimeout(timer);
     }, [tasks]);
 
     const getTasks = async () => {
-        await setLoad(true)
+        setLoad(true)
         try {
             const response = await axios(`http://localhost:3001/task`, {
                 method: 'GET'
             })
             const result = await response.data.body
             await setLoad(false)
-            setTasks(result)
-            setTime(moment().format('HH:mm:ss'))
+            await setTasks(result)
+            await setTime(moment().format('HH:mm:ss'))
         } catch (e) {
             setLoad(false)
             alert('error response for http://localhost:3001/task')
